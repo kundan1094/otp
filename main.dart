@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'mainscreen.dart';
+import 'package:newapp/OtpView.dart';
 void main() =>runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
        primaryColor: new Color(0xff622f74),
       ),
-      home: MainScreen(),
+      home: OtpView(),
 
     );
   }
