@@ -73,71 +73,147 @@ class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
                 children: <Widget>[
                   Container(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+
                       children: <Widget>[
-                        Text('IDENTITY DETAILS',style: GoogleFonts.montserrat(
-                      textStyle:TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                        Container(
+                          child: Text("Select the strengths of the skills",
+                            style: GoogleFonts.montserrat(
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.blue[900]),
+                            textAlign: TextAlign.center,),
                         ),
+
 
                       ],
                     ),
                   ),
-                  MyTextFormFields(LText: 'Company Name',),
-                  MyTextFormFields(LText: 'Company/Working Address',),
-                  MyTextFormFields(LText: 'City/Village/Town',),
+                  //Search Box
+                  Row(
+
+                    children: <Widget>[
+                      Container(
+                        child: Text("Carpenter",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                          textAlign: TextAlign.center,),
+                      ),
+                      SizedBox(
+                        width: 230.0,
+                      ),
+                      IconButton(icon:Icon(Icons.keyboard_arrow_right,color:Colors.black ,)) ,
+
+                    ],
+                  ),
+                  Row(
+
+                    children: <Widget>[
+                      Container(
+                        child: Text("Painter",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                          textAlign: TextAlign.center,),
+                      ),
+                      SizedBox(
+                        width: 245.0,
+                      ),
+                      IconButton(icon:Icon(Icons.keyboard_arrow_right,color:Colors.black ,)) ,
+
+                    ],
+                  ),
+                  Row(
+
+                    children: <Widget>[
+                      Container(
+                        child: Text("Electricine",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black),
+                          textAlign: TextAlign.center,),
+                      ),
+                      SizedBox(
+                        width: 225.0,
+                      ),
+                      IconButton(icon:Icon(Icons.keyboard_arrow_right,color:Colors.black ,)) ,
+
+                    ],
+                  ),
+                  Row(
+
+                    children: <Widget>[
+                      Container(
+                        child: Text("Preferred Location To work",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 15.0,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue[900]),
+                          textAlign: TextAlign.center,),
+                      ),
+
+
+                    ],
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    height: 30,
+                    child: TextField(
+                      expands: true,
+                      maxLines: null,
+                      minLines: null,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                        //isDense: true,
+                        //labelText: 'Search & Add Services',
+                        hintText: 'Totu, Shimla, Himachal Pradesh',
+                        hintStyle: TextStyle(fontSize: 14,),
+
+                        /*border: UnderlineInputBorder(
+                  ),*/
+                        enabledBorder:  UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.blue[900],
+                            width: 2.0,
+                          ),
+                        ),
+                        focusedBorder:  UnderlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide(
+                            color: Colors.blue,
+                            width: 2.0,
+                          ),
+                        ),
+
+                        /*labelStyle: GoogleFonts.roboto(
+                  fontSize: 15,
+                ),*/
+
+                        suffixIcon: Icon(Icons.keyboard_voice,size: 25,color:Colors.blue[900]),
+                        prefixIcon: Icon(Icons.search,size: 25,color: Colors.blue[900]),
+                      ),
+
+                    ),
+                  ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+
+
                   MyDropDownList(
-                    LText: "State",
+                    LText: "You work as",
                     currentSelectdValue: _currentSelectedState,
                     onChanged: _handleChangedState,
                     list: State,
                   ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child:MyDropDownList(
-                          LText: "District",
-                          currentSelectdValue: _currentSelectedDistrict,
-                          onChanged: _handleChangedDistrict,
-                          list: District,
-                        ),
-                      ),
-                      SizedBox(width: 10,),
-                      Expanded(child:
-                      MyDropDownList(
-                        LText: "Tehsil",
-                        currentSelectdValue: _currentSelectedDistrict,
-                        onChanged: _handleChangedDistrict,
-                        list: District,
-                      ),
-                      ),
-                    ],),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child:MyDropDownList(
-                          LText: "Location",
-                            currentSelectdValue: _currentSelectedDistrict,
-                            onChanged: _handleChangedDistrict,
-                            list: District,
-                        ),
-                      ),
-                      SizedBox(width: 10,),
-                      Expanded(child:
-                      MyDropDownList(
-                        LText: "Pincode",
-                        currentSelectdValue: _currentSelectedPincode,
-                        onChanged: _handleChangedPincode,
-                        list: Pincode,
-                      ),
-                      ),
-                    ],),
+
 
                   MyDropDownList(
-                    LText: "Period of Experience",
+                    LText: "Payment Term",
                     currentSelectdValue: _currentSelectedProof,
                     onChanged: _handleChangedProof,
                     list: proof,
