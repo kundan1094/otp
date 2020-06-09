@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:identityapp/MeraKamCustomWidget.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 class MYPersonalDetailsPage2 extends StatefulWidget {
   @override
   _MYPersonalDetailsPage2State createState() => _MYPersonalDetailsPage2State();
@@ -8,34 +9,12 @@ class MYPersonalDetailsPage2 extends StatefulWidget {
 class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
   final _formKey = GlobalKey<FormState>();
   var txt = TextEditingController();
-  String _currentSelectedGender="Male";
-  String _currentSelectedPincode="800001";
-  var Pincode=['800001','800002','800003','800004','800005'];
-  void _handleChangedPincode(String value) {
-    setState(() {
-      _currentSelectedPincode=value;
-    });
-  }
+
   String _currentSelectedDistrict="Patna";
   var District=['Patna','Nasik','Pune','New Delhi','Ludhiyana'];
   void _handleChangedDistrict(String value) {
     setState(() {
       _currentSelectedDistrict=value;
-    });
-
-  }
-  String _currentSelectedState="Bihar";
-  var State=['Bihar','UP','Bangal','Delhi','Punjab'];
-  void _handleChangedState(String value) {
-    setState(() {
-      _currentSelectedState=value;
-    });
-  }
-  String _currentSelectedProof="0 Year";
-  var proof=['0 Year','1 Year','2 Year','3 Year','3< Year'];
-  void _handleChangedProof(String value) {
-    setState(() {
-      _currentSelectedProof=value;
     });
   }
   @override
@@ -53,7 +32,7 @@ class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
                 Navigator.pop(context);},
             ),
             title: Center(
-                child:Text("Profile Update  ",
+                child:Text("My Account",
                   style:GoogleFonts.montserrat(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),)
             ),
             actions: <Widget>[
@@ -73,152 +52,267 @@ class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
                 children: <Widget>[
                   Container(
                     child: Row(
-
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Container(
-                          child: Text("Select the strengths of the skills",
-                            style: GoogleFonts.montserrat(
-                                fontSize: 15.0,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.blue[900]),
-                            textAlign: TextAlign.center,),
+                        Text('Reg. ID 23467',style: GoogleFonts.montserrat(fontSize: 16,),),
+                        SizedBox(
+                          width: 88.0,
                         ),
 
+                        Expanded(
+                          child:MyDropDownList(
+                            LText: "",
+                            currentSelectdValue: _currentSelectedDistrict,
+                            onChanged: _handleChangedDistrict,
+                            list: District,
+                          ),
+                        ),
 
                       ],
                     ),
                   ),
-                  //Search Box
-                  Row(
-
+                  Stack(
+                    //fit: StackFit.passthrough,
+                    alignment: Alignment(0,0),
                     children: <Widget>[
-                      Container(
-                        child: Text("Carpenter",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                          textAlign: TextAlign.center,),
+                      Row(  children: <Widget>[
+                        Expanded(flex: 10,
+                          child:
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Colors.blue[900]),
+                              borderRadius: BorderRadius.circular(25.0),
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black38,
+                                  blurRadius: 2.0,
+                                  spreadRadius: 0.0,
+                                  offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                                )
+                              ],
+                            ),
+                            alignment: Alignment.center,
+                            //margin: EdgeInsets.only(top: 40),
+                            height: 65,
+                            //color: Colors.red,
+                            child:Column(
+
+                              children:[
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text('60 coins in Wallet',
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500,
+
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 13.0,
+                                ),
+
+
+
+                                Text('Profile 60%',
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500,
+
+
+                                  ),
+                                ),
+                              ],
+
+                            ),
+
+
+
+
+                          ),
+
+                        ),
+                        Expanded(child: Container(),),
+                        Expanded(flex: 10,
+                          child: Container(
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Colors.blue[900]),
+
+                              borderRadius: BorderRadius.circular(25.0),
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black38,
+                                  blurRadius: 2.0,
+                                  spreadRadius: 0.0,
+                                  offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                                )
+                              ],
+                            ),
+                            //margin: EdgeInsets.only(top: 40),
+                            height: 65,
+                            //color: Colors.deepOrange,
+                            child:Column(
+
+                              children:[
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+
+                                Text('24 reviews',
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500,
+
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 13.0,
+                                ),
+
+
+                                Row(
+                                    children:<Widget>[
+                                      SizedBox(
+                                        width: 40.0,
+                                      ),
+                                Container(child:
+                                      Text('3.5/5',
+                                        style: GoogleFonts.montserrat(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                ),
+                                      SizedBox(
+                                        width: 10.0,
+                                      ),
+                                      SmoothStarRating(
+                                          allowHalfRating: false,
+                                          onRated: (v) {
+                                          },
+                                          starCount: 5,
+
+                                          size: 15.0,
+                                          isReadOnly:true,
+
+                                          color: Colors.black,
+                                          borderColor: Colors.yellow[900],
+                                          spacing:0.0
+                                      )
+
+                                    ],
+                                )
+
+
+
+
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+
                       ),
-                      SizedBox(
-                        width: 230.0,
-                      ),
-                      IconButton(icon:Icon(Icons.keyboard_arrow_right,color:Colors.black ,)) ,
-
-                    ],
-                  ),
-                  Row(
-
-                    children: <Widget>[
-                      Container(
-                        child: Text("Painter",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                          textAlign: TextAlign.center,),
-                      ),
-                      SizedBox(
-                        width: 245.0,
-                      ),
-                      IconButton(icon:Icon(Icons.keyboard_arrow_right,color:Colors.black ,)) ,
-
-                    ],
-                  ),
-                  Row(
-
-                    children: <Widget>[
-                      Container(
-                        child: Text("Electricine",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black),
-                          textAlign: TextAlign.center,),
-                      ),
-                      SizedBox(
-                        width: 225.0,
-                      ),
-                      IconButton(icon:Icon(Icons.keyboard_arrow_right,color:Colors.black ,)) ,
-
-                    ],
-                  ),
-                  Row(
-
-                    children: <Widget>[
-                      Container(
-                        child: Text("Preferred Location To work",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.blue[900]),
-                          textAlign: TextAlign.center,),
-                      ),
-
-
-                    ],
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                    height: 30,
-                    child: TextField(
-                      expands: true,
-                      maxLines: null,
-                      minLines: null,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-                        //isDense: true,
-                        //labelText: 'Search & Add Services',
-                        hintText: 'Totu, Shimla, Himachal Pradesh',
-                        hintStyle: TextStyle(fontSize: 14,),
-
-                        /*border: UnderlineInputBorder(
-                  ),*/
-                        enabledBorder:  UnderlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(
+                      Container(//color: Colors.white,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.0),
+                          color: Colors.white,
+                          /*boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      blurRadius: 2.0,
+                      spreadRadius: 0.0,
+                      offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                    )
+                  ],*/
+                        ),
+                        child: Container(
+                          margin: EdgeInsets.all(3),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(60.0),
                             color: Colors.blue[900],
-                            width: 2.0,
+                            /*boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      blurRadius: 2.0,
+                      spreadRadius: 0.0,
+                      offset: Offset(2.0, 2.0), // shadow direction: bottom right
+                    )
+                  ],*/
                           ),
-                        ),
-                        focusedBorder:  UnderlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                          borderSide: BorderSide(
-                            color: Colors.blue,
-                            width: 2.0,
-                          ),
-                        ),
+                          //color: Colors.white,
+                          child: Icon(Icons.person,color: Colors.white,size: 60,),
+                        ),)
 
-                        /*labelStyle: GoogleFonts.roboto(
-                  fontSize: 15,
-                ),*/
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                Row(
+                    children:<Widget>[
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                     Container(width: 50,height: 50,
+                         decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.blue[900]),
 
-                        suffixIcon: Icon(Icons.keyboard_voice,size: 25,color:Colors.blue[900]),
-                        prefixIcon: Icon(Icons.search,size: 25,color: Colors.blue[900]),
+
+
+                        ),
+                     ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                    Container(width: 50,height: 50,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.blue[900]),
+
+
+
                       ),
 
+
                     ),
-                  ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
+                      SizedBox(
+                        width: 90.0,
+                      ),
+                   Container(width: 50,height: 50,
+                     decoration: BoxDecoration(
+                       border: Border.all(width: 1, color: Colors.blue[900]),
 
 
-                  MyDropDownList(
-                    LText: "You work as",
-                    currentSelectdValue: _currentSelectedState,
-                    onChanged: _handleChangedState,
-                    list: State,
-                  ),
+
+                     ),
 
 
-                  MyDropDownList(
-                    LText: "Payment Term",
-                    currentSelectdValue: _currentSelectedProof,
-                    onChanged: _handleChangedProof,
-                    list: proof,
-                  ),
-                ],
+                     ),
+                      SizedBox(
+                        width: 15.0,
+                      ),
+                   Container(width: 50,height: 50,
+                     decoration: BoxDecoration(
+                       border: Border.all(width: 1, color: Colors.blue[900]),
+
+
+
+                     ),
+
+
+                   ),
+                   ],
+                ),
+
+
+
+
+
+
+    ],
               ),
             ),
           ],
