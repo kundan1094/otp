@@ -10,13 +10,7 @@ class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
   final _formKey = GlobalKey<FormState>();
   var txt = TextEditingController();
 
-  String _currentSelectedDistrict="Patna";
-  var District=['Patna','Nasik','Pune','New Delhi','Ludhiyana'];
-  void _handleChangedDistrict(String value) {
-    setState(() {
-      _currentSelectedDistrict=value;
-    });
-  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -32,7 +26,7 @@ class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
                 Navigator.pop(context);},
             ),
             title: Center(
-                child:Text("My Account",
+                child:Text("Reviews",
                   style:GoogleFonts.montserrat(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),)
             ),
             actions: <Widget>[
@@ -48,290 +42,447 @@ class _MYPersonalDetailsPage2State extends State<MYPersonalDetailsPage2> {
           children: <Widget>[
             Expanded(
               child: ListView(
-                padding: EdgeInsets.only(top:20,left:10,right: 10),
+                padding: EdgeInsets.only(top:10,left:10,right: 10),
                 children: <Widget>[
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Text('Reg. ID 23467',style: GoogleFonts.montserrat(fontSize: 16,),),
                         SizedBox(
-                          width: 88.0,
+                          width: 5.0,
+                        ),
+
+                        Container(child:
+                        Text('5/5',
+                          style: GoogleFonts.roboto(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        SmoothStarRating(
+                            allowHalfRating: false,
+                            onRated: (v) {
+                            },
+                            starCount: 5,
+
+                            size: 18.0,
+                            isReadOnly:true,
+
+                            color: Colors.black,
+                            borderColor: Colors.yellow[900],
+                            spacing:0.0
+                        ),
+
+
+                        SizedBox(
+                          width: 110.0,
                         ),
 
                         Expanded(
-                          child:MyDropDownList(
-                            LText: "",
-                            currentSelectdValue: _currentSelectedDistrict,
-                            onChanged: _handleChangedDistrict,
-                            list: District,
-                          ),
+                          child:
+                          Text('24 reviews',style: GoogleFonts.roboto(fontSize: 16,
+                            fontWeight: FontWeight.w500,),),
+
                         ),
 
                       ],
                     ),
                   ),
-                  Stack(
-                    //fit: StackFit.passthrough,
-                    alignment: Alignment(0,0),
+
+                  Row(
                     children: <Widget>[
-                      Row(  children: <Widget>[
-                        Expanded(flex: 10,
-                          child:
+                    Container(padding: EdgeInsets.only(top:10,left:90),
+                   child:
+                       SmoothStarRating(
+                      allowHalfRating: false,
+                      onRated: (v) {
+                      },
+                      starCount: 5,
+
+                      size: 30.0,
+                      isReadOnly:true,
+
+                      color: Colors.black,
+                      borderColor: Colors.black54,
+                      spacing:0.0
+                  ),
+                    ),
+                  ],
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text('Describe the person',style: GoogleFonts.montserrat(fontSize: 16,
+                            fontWeight: FontWeight.w500,color: Colors.blue[900],),),
+                     ],
+                    ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                    Divider(
+
+                      color: Colors.blue[900],
+                    ),
+
+
+                    Stack(
+                    children: <Widget>[
+                      Container(
+                        height: 150.0,
+
+                       decoration: BoxDecoration(boxShadow: [
+                           BoxShadow(
+                          color: Colors.black.withOpacity(0.0),
+                      spreadRadius: 2.0,
+                        blurRadius: 1.0),
+                      ], color: Colors.white),
+                         ),
+
+                      Positioned(
+                        top: 8.0,
+                        left: 10.0,
+
+                        child: Row(
+                          children: <Widget>[
                           Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: Colors.blue[900]),
-                              borderRadius: BorderRadius.circular(25.0),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black38,
-                                  blurRadius: 2.0,
-                                  spreadRadius: 0.0,
-                                  offset: Offset(2.0, 2.0), // shadow direction: bottom right
-                                )
-                              ],
-                            ),
-                            alignment: Alignment.center,
-                            //margin: EdgeInsets.only(top: 40),
-                            height: 65,
-                            //color: Colors.red,
-                            child:Column(
-
-                              children:[
-                                SizedBox(
-                                  height: 10.0,
+                         height: 50.0,
+                           width: 50.0,
+                           decoration: BoxDecoration(
+                           borderRadius: BorderRadius.circular(50),
+                               image: DecorationImage(
+                            image: AssetImage('logos/kgn.jpg'),
+                            fit: BoxFit.cover)),
                                 ),
-                                Text('60 coins in Wallet',
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w500,
+                            SizedBox(width: 70.0),
+                              Column(
+                               crossAxisAlignment: CrossAxisAlignment.end,
+                                children: <Widget>[
 
+                                    Text(
+                                   'Amit Aggarwal',
+                                 style: GoogleFonts.roboto(
+                                     fontSize: 16,
+                                     fontWeight: FontWeight.w500,
+                                     color: Colors.black),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 13.0,
-                                ),
+
+                                  Row(
+                                 children: <Widget>[
+
+                                   Container(padding: EdgeInsets.only(top:5,left:90),
+                                     width: MediaQuery.of(context).size.width - 170.0,
+                                   child: SmoothStarRating(
+                                       allowHalfRating: false,
+                                       onRated: (v) {
+                                       },
+                                       starCount: 5,
+
+                                       size: 18.0,
+                                       isReadOnly:true,
+
+                                       color: Colors.black,
+                                       borderColor: Colors.yellow[900],
+                                       spacing:0.0
+                                   ),
+                                      )
+                               ],
+                                    ),
 
 
 
-                                Text('Profile 60%',
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w500,
+                         ],
+                          ),
 
-
-                                  ),
-                                ),
-                              ],
-
-                            ),
-
-
-
+                          ],
 
                           ),
 
-                        ),
-                        Expanded(child: Container(),),
-                        Expanded(flex: 10,
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: Colors.blue[900]),
 
-                              borderRadius: BorderRadius.circular(25.0),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black38,
-                                  blurRadius: 2.0,
-                                  spreadRadius: 0.0,
-                                  offset: Offset(2.0, 2.0), // shadow direction: bottom right
-                                )
-                              ],
+
+                     ),
+
+
+
+                      Row(
+                        children: <Widget>[
+
+                          Container(padding: EdgeInsets.only(top:70,left: 10,right: 5),
+                            width: MediaQuery.of(context).size.width - 20.0,
+                            child: Text(
+                              'This person is good with his skill. He completed his work with perfect finishing on time.i wish a gud luck for his future..',
+                              style: GoogleFonts.roboto(
+                                  fontSize: 14.0, color: Colors.grey),
                             ),
-                            //margin: EdgeInsets.only(top: 40),
-                            height: 65,
-                            //color: Colors.deepOrange,
-                            child:Column(
 
-                              children:[
-                                SizedBox(
-                                  height: 10.0,
+
+                          ),
+                        ],
+                      ),
+                             Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                           children: <Widget>[
+                            Container(padding: EdgeInsets.only(top:130,left: 260),
+                             child:
+                             Text(
+                               '20-Feb-20',
+                               style: GoogleFonts.roboto(
+                                   fontSize: 12,
+                                   fontWeight: FontWeight.w500,
+                                   color: Colors.grey),
+                             ),
+                            ),
+                             ],
+                             ),
+                         ],
+                        ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        height: 150.0,
+
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.0),
+                              spreadRadius: 0.0,
+                              blurRadius: 1.0),
+                        ], color: Colors.white),
+                      ),
+
+                      Positioned(
+                        top: 8.0,
+                        left: 10.0,
+
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              height: 50.0,
+                              width: 50.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  image: DecorationImage(
+                                      image: AssetImage('logos/kgn.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            SizedBox(width: 70.0),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+
+                                Text(
+                                  'Amit Aggarwal',
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
                                 ),
-
-                                Text('24 reviews',
-                                  style: GoogleFonts.montserrat(
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w500,
-
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 13.0,
-                                ),
-
 
                                 Row(
-                                    children:<Widget>[
-                                      SizedBox(
-                                        width: 40.0,
-                                      ),
-                                Container(child:
-                                      Text('3.5/5',
-                                        style: GoogleFonts.montserrat(
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                ),
-                                      SizedBox(
-                                        width: 10.0,
-                                      ),
-                                      SmoothStarRating(
+                                  children: <Widget>[
+
+                                    Container(padding: EdgeInsets.only(top:5,left:90),
+                                      width: MediaQuery.of(context).size.width - 170.0,
+                                      child: SmoothStarRating(
                                           allowHalfRating: false,
                                           onRated: (v) {
                                           },
                                           starCount: 5,
 
-                                          size: 15.0,
+                                          size: 18.0,
                                           isReadOnly:true,
 
                                           color: Colors.black,
                                           borderColor: Colors.yellow[900],
                                           spacing:0.0
-                                      )
-
-                                    ],
-                                )
-
-
+                                      ),
+                                    )
+                                  ],
+                                ),
 
 
                               ],
                             ),
-                          ),
+
+                          ],
+
                         ),
-                      ],
+
+
 
                       ),
-                      Container(//color: Colors.white,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          color: Colors.white,
-                          /*boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      blurRadius: 2.0,
-                      spreadRadius: 0.0,
-                      offset: Offset(2.0, 2.0), // shadow direction: bottom right
-                    )
-                  ],*/
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(60.0),
-                            color: Colors.blue[900],
-                            /*boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      blurRadius: 2.0,
-                      spreadRadius: 0.0,
-                      offset: Offset(2.0, 2.0), // shadow direction: bottom right
-                    )
-                  ],*/
-                          ),
-                          //color: Colors.white,
-                          child: Icon(Icons.person,color: Colors.white,size: 60,),
-                        ),)
+                      Row(
+                        children: <Widget>[
 
+                          Container(padding: EdgeInsets.only(top:70,left: 10,right: 5),
+                            width: MediaQuery.of(context).size.width - 20.0,
+                            child: Text(
+                              'This person is good with his skill. He completed his work with perfect finishing on time.i wish a gud luck for his future..',
+                              style: GoogleFonts.roboto(
+                                  fontSize: 14.0, color: Colors.grey),
+                            ),
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(padding: EdgeInsets.only(top:130,left: 260),
+                            child:
+                            Text(
+                              '20-Feb-20',
+                              style: GoogleFonts.roboto(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                   SizedBox(
-                    height: 15.0,
+                    height: 5.0,
                   ),
-                Row(
-                    children:<Widget>[
-                      SizedBox(
-                        width: 10.0,
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        height: 150.0,
+
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.0),
+                              spreadRadius: 2.0,
+                              blurRadius: 1.0),
+                        ], color: Colors.white),
                       ),
-                     Container(width: 50,height: 50,
-                         decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue[900]),
+
+                      Positioned(
+                        top: 8.0,
+                        left: 10.0,
+
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              height: 50.0,
+                              width: 50.0,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  image: DecorationImage(
+                                      image: AssetImage('logos/kgn.jpg'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            SizedBox(width: 70.0),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+
+                                Text(
+                                  'Amit Aggarwal',
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black),
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+
+                                    Container(padding: EdgeInsets.only(top:5,left:90),
+                                      width: MediaQuery.of(context).size.width - 170.0,
+                                      child: SmoothStarRating(
+                                          allowHalfRating: false,
+                                          onRated: (v) {
+                                          },
+                                          starCount: 5,
+
+                                          size: 18.0,
+                                          isReadOnly:true,
+
+                                          color: Colors.black,
+                                          borderColor: Colors.yellow[900],
+                                          spacing:0.0
+                                      ),
+                                    )
+                                  ],
+                                ),
 
 
+                              ],
+                            ),
+
+                          ],
 
                         ),
-                     ),
-                      SizedBox(
-                        width: 15.0,
-                      ),
-                    Container(width: 50,height: 50,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.blue[900]),
 
 
 
                       ),
+                      Row(
+                        children: <Widget>[
 
+                          Container(padding: EdgeInsets.only(top:70,left: 10,right: 5),
+                            width: MediaQuery.of(context).size.width - 20.0,
+                            child: Text(
+                              'This person is good with his skill. He completed his work with perfect finishing on time.i wish a gud luck for his future..',
+                              style: GoogleFonts.roboto(
+                                  fontSize: 14.0, color: Colors.grey),
+                            ),
+
+
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(padding: EdgeInsets.only(top:130,left: 260),
+                            child:
+                            Text(
+                              '20-Feb-20',
+                              style: GoogleFonts.roboto(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.grey),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
+                    ],
 
                     ),
-                      SizedBox(
-                        width: 90.0,
-                      ),
-                   Container(width: 50,height: 50,
-                     decoration: BoxDecoration(
-                       border: Border.all(width: 1, color: Colors.blue[900]),
-
-
-
-                     ),
-
-
-                     ),
-                      SizedBox(
-                        width: 15.0,
-                      ),
-                   Container(width: 50,height: 50,
-                     decoration: BoxDecoration(
-                       border: Border.all(width: 1, color: Colors.blue[900]),
-
-
-
-                     ),
-
-
-                   ),
-                   ],
-                ),
-
-
-
-
-
-
-    ],
-              ),
+                    ),
+            ],
             ),
+
+
+
+            bottomNavigationBar: BottomAppBar(
+        color: Colors.blue[900],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.arrow_forward,color: Colors.white,size: 25,),
+            ),
+            IconButton(
+              icon: Icon(Icons.live_help,color: Colors.white,size: 25,),
+            )
           ],
         ),
-        bottomNavigationBar: BottomAppBar(
-          color: Colors.blue[900],
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.arrow_forward,color: Colors.white,size: 25,),
-              ),
-              IconButton(
-                icon: Icon(Icons.live_help,color: Colors.white,size: 25,),
-              )
-            ],
-          ),
-        ),
       ),
+    ),
     );
   }
 }
