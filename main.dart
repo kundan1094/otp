@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'form2.dart';
-
+import 'hme.dart';
 
 
 void main() =>runApp(MyApp());
@@ -12,9 +10,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title:'flutter app',
       theme: ThemeData(
-        primaryColor: new Color(0xff622f74),
+        primaryColor:  Colors.blue,
       ),
-      home: MYPersonalDetailsPage2(),
+      home:  hme(),
 
     );
   }
