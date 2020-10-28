@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:identityapp/first.dart';
 import 'package:identityapp/second.dart';
 import 'package:identityapp/third.dart';
 import 'package:identityapp/forth.dart';
+import 'package:identityapp/first.dart';
 class hme extends StatelessWidget {
 
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class hme extends StatelessWidget {
           titleSpacing: 0,
           backgroundColor: Colors.lightBlueAccent,
           bottom:TabBar(
-            isScrollable: true,
+              isScrollable: true,
               indicatorColor: Colors.white,
               indicatorWeight: 3.0,
               unselectedLabelColor: Colors.black,
@@ -24,10 +24,13 @@ class hme extends StatelessWidget {
 
 
               tabs:[
-                Tab(text: 'Local',),
-                Tab(text: 'State',),
-                Tab(text: 'Popular',),
-                Tab(text: 'Most Views',),
+                Tab(text: 'Local News',),
+
+                Tab(text: 'State News',),
+
+                Tab(text: 'Popular News',),
+
+                Tab(text: 'E-paper',),
 
 
               ]
@@ -48,35 +51,35 @@ class hme extends StatelessWidget {
 
           ),
 
-                title: Container(height: 42,width: 250,
-              color: Colors.white,
-              margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+          title: Container(height: 42,width: 250,
+            color: Colors.white,
+            margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
 
-              child: TextField(
+            child: TextField(
 
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(0, 6, 0, 5),
-                  hintText: 'Search ',
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.fromLTRB(0, 6, 0, 5),
+                hintText: 'Search ',
 
-                  enabledBorder:  UnderlineInputBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 2.0,
-                    ),
+                enabledBorder:  UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(25.0),
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                    width: 2.0,
                   ),
-                  focusedBorder:  UnderlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 2.0,
-                    ),
-                  ),
-
-                  prefixIcon: Icon(Icons.search,size: 25,color: Colors.black87),
                 ),
+                focusedBorder:  UnderlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                    width: 2.0,
+                  ),
+                ),
+
+                prefixIcon: Icon(Icons.search,size: 25,color: Colors.black87),
               ),
             ),
+          ),
           actions: <Widget>[
             Container(height: 42,width: 55,
               child: Icon(Icons.category,
@@ -84,8 +87,6 @@ class hme extends StatelessWidget {
               ),
             ),
           ],
-
-
         ),
 
 
@@ -100,7 +101,14 @@ class hme extends StatelessWidget {
           ],
         ),
 
-      ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){},
+          child: Icon(Icons.add,color: Colors.white,),
+          backgroundColor: Colors.lightBlueAccent,
+          elevation: 3,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+    ),
     );
   }
 }
