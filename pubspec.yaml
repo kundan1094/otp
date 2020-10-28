@@ -54,6 +54,13 @@ flutter:
    - logos/kaam.png
    - logos/kgn.jpg
    - logos/one.jpg
+   - logos/facebook.png
+   - logos/search.png
+   - logos/face.png
+   - logos/gool.png
+   - logos/phon.png
+   - logos/fac.png
+   - logos/goo.png
    - logos/hand-shake.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
